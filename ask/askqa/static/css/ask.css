@@ -1,0 +1,140 @@
+body {
+    padding-top: 5rem;
+  }
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+.ask-questblock
+{
+    background: #DAD4F7;
+    padding: 5px;
+    border: 2px solid black;
+    color: black;
+}
+
+.ask-navbg
+{
+    background: #B1A4EF;
+}
+
+.ask-navbar-label
+{
+    color: white;
+    font-weight: bold;
+    margin-left: 2px;
+    margin-right: 6px;
+    
+}
+a.ask-navbar-label:hover
+{
+    color: black;
+}
+.ask-sign
+{
+    background: #000000;
+    color: white;
+    font-weight: bold;
+    margin: 4px;
+}
+.ask-higher
+{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.ask-listblock
+{
+    background: #DAD4F7;
+    padding: 5px;
+    border: 2px solid black;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 14pt;
+}
+
+.ask-listblock a
+{
+    color: black;
+}
+
+.ask-logofont
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 16px;
+}
+
+.ask-like
+{
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    padding: 4px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.ask-like:hover
+{
+    text-decoration: none;
+}
+
+.ask-wrong
+{
+    color:red;
+}
+
+.ask-textarea
+{
+    width: 100%;
+    height: 200px;
+}
+
+.ask-likecount
+{
+    width: 36px;
+    height: 36px;
+    font-size: 12pt;
+    margin: 2px;
+    padding: 4px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ask-useravatar
+{
+    width: 72px;
+    height: 72px;
+}
+
+.ask-useravatar-big
+{
+    width: 144px;
+    height: 144px;
+}
+
+.ask-useravatar-mini
+{
+    width: 36px;
+    height: 36px;
+}
+
+.ask-container
+{
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 15px;
+	padding-bottom: 25px;
+}
+
+hr
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: none; 
+    color: gray; 
+    background-color: gray; 
+    height: 2px; 
+}

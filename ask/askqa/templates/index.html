@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-4">
+        <h3>{{title}}</h3>
+    </div>
+    <div class="col-4"><a href= {% if title == "New questions" %}
+        "{% url 'askqa_hot' %}"
+        {% else %}
+        "{% url 'askqa_index' %}"
+        {%endif%}>
+        <h4>{{subTitle}}</h4></a>
+    </div>
+</div> 
+<div class="ask-higher">
+{% for question in questions %}
+{% include "question.html"%}
+{% endfor %}
+</div>
+{% include "paginator.html" with objects=questions %}
+{% endblock %}
+
+{% block js %}
+{% endblock js %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-5">
+    <h2>Registration</h2>
+    <form method="POST">
+        <div class="ask-wrong ask-higher">{{ form.non_field_errors.0}}</div>
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <div class="form-group">
+                <label for="title">{{field.label}}</label>
+                {{field.as_widget}}
+            </div>
+        {% endfor %}
+        <button type="submit" class="ask-sign btn" name="SignUp">Sign Up</button>
+    </form>
+</div>
+{% endblock content %}

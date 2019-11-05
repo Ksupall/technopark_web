@@ -1,0 +1,30 @@
+{% load static %}
+<a id={{answer.id}}></a>
+<div class="media ask-questblock ask-higher rounded">
+    <div class = "mt-3 ml-4 mr-4 col-1 justify-content-center">
+        <div class = "row justify-content-center">
+            <img class="ask-useravatar rounded" src="{% static 'img/test.png'%}">
+        </div>
+
+        <div class="row mt-2 justify-content-center">
+            {{answer.author}}
+        </div>
+
+        <div class = "mt-3 row justify-content-center ask-higher">
+            <a href="#" class="rounded-left btn-danger ask-like">&#128078;</a>
+                <div><span class="form-control">
+                    {{answer.rating}}
+                </span></div>
+            <a href="#" class="rounded-right btn-success ask-like">&#128077;</a>
+        </div>
+    </div>
+    
+    <div class="media-body ml-3 mt-3">
+        <h5></h5>
+    <p>
+            {{answer.text |truncatechars:140}} 
+    </p>
+    <input type="checkbox" id="is_correct">
+    <small for="is_correct">Correct?</small>
+    </div>
+</div>

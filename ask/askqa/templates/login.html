@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class=col-5>
+    <div class="mb-4">
+        <h2>Log In</h2>
+    </div>
+    <div class="ml-3">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="askme-wrong">
+                {{ form.non_field_errors.0 }}
+            </div>
+            {% for field in form.visible_fields %}
+                <div class="row askqa-higher">
+                    <label for="title">{{field.label}}</label>
+                    {{field.as_widget}}
+                </div>
+            {% endfor %}
+
+            <button class="my-4 mr-3 btn ask-sign" type="submit">Log In</button>
+            <a href="{% url 'askqa_signup' %}">Don't have an account?</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

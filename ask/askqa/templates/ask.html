@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>New Question</h2>
+<div class="ask-higher ask-questblock">
+    <div class="mt-3">
+        <form method="POST">
+            {% csrf_token %}
+            {% for f in form.visible_fields %}
+                <div class="ml-3 mr-3 form-group">
+                    <label for="title">{{ f.label }} </label>
+                    {{f.as_widget}}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="ml-3 mb-3 ask-sign btn" name="ASK!">ASK!</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

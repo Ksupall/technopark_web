@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}AskMe{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/ask.css' %}">
+    </head>
+    
+<body>
+     <nav class="navbar navbar-expand-md navbar-dark ask-navbg fixed-top">
+      <img src="{% static 'img/logo.png' %}">
+      <a class="navbar-brand ask-logofont" href="{% url 'askqa_index' %}">AskPall</a>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active mr-3">
+            <a class="btn ask-sign nav-link ml-3" href="{% url 'askqa_ask' %}">Ask! <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-dark my-2 mr-5 my-sm-0" type="submit">Search</button>
+        </form>
+    
+        {% if user.is_authenticated %}
+        <div class="row">
+          <div>
+            <img class="ask-useravatar-mini rounded" src="{{MEDIA_URL}}{{user.profile.avatar.url}}">
+          </div>
+          <div class="col">
+              <div class="row no-gutters">
+                  <h5 class="ask-navbar-label">{{user.username}}</h5>
+              </div>
+              <div class="row no-gutters mr-3">
+                  <a href="{% url 'askqa_profile' %}" class="ask-navbar-label">Settings</a>
+                  <a href="{% url 'askqa_logout' %}" class="ask-navbar-label">Log Out</a>
+              </div>
+          </div>
+        </div>
+        {% else %}
+          <a class="ask-navbar-label" href="{% url 'askqa_login' %}">Log In</a>
+          <a class="ask-navbar-label" href="{% url 'askqa_signup' %}">Sign Up</a>
+        {% endif %}
+
+      </div>
+    </nav>
+   
+    <!-- CONTENT -->
+   <div class="ask-container">
+    <div class="row ask-higher">
+        <!-- Left column-->
+        <div class="col-10">
+          {% block content %}
+            <!-- Page content -->
+          {% endblock %}
+        </div>
+        <!-- Right column-->
+        <div class="col">
+            <div class="col ask-higher">
+                <h3>Popular Tags</h3>
+                <div class="ask-listblock rounded">
+                    {% for tag in popularTags %}
+                    <div class="row justify-content-center">
+                        <a href="{% url 'askqa_tag' tag %}">{{tag}}</a>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<script
+  src="http://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

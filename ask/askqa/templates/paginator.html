@@ -1,0 +1,27 @@
+<nav class="higher">
+    <ul class="pagination">
+   
+        {% if objects.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ objects.previous_page_number }}">&laquo;</a>
+        </li>
+        {% endif %}
+   
+        <li class="page-item disabled">
+            <a class="page-link" href="#">{{objects.number}}</a>
+        </li>
+
+        {% if objects.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{objects.next_page_number}}">&raquo;</a>
+        </li>
+
+        <li class="page-item">
+            <a class="page-link" href="?page={{objects.paginator.num_pages}}">{{objects.paginator.num_pages}}</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
